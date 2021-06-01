@@ -5,7 +5,6 @@ plugins {
     kotlin("plugin.spring")
     //id("org.ajoberstar.grgit")
     id("org.ajoberstar.reckon")
-//    id("com.palantir.docker-run")
     id("com.github.ben-manes.versions")
 }
 
@@ -91,34 +90,6 @@ reckon {
     snapshotFromProp()
     //stageFromProp("release")
 }
-
-//dockerRun {
-//    name = "gradle-builder"
-//    image = "gradle:7.0.2-jdk11-hotspot"
-//    daemonize = false
-//    clean = true
-//    volumes(mapOf(
-//        "$rootDir" to "$rootDir"
-//    ))
-//    env(
-//        mapOf("HELLO" to "WORLD")
-//            .plus(
-//                System
-//                    .getenv()
-//                    .filterNot {
-//                        it.key == "PATH"
-//                                || it.key.toLowerCase().contains("java")
-//                                || it.key.toLowerCase().contains("gradle")
-//                                || it.value.startsWith(System.getenv("HOME"))
-//                    }
-//            )
-//    )
-//    arguments( // docker run arguments
-//        "--workdir=$rootDir" // same dir as defined under volumes
-//    )
-//    // the command cannot have spaces, so split on space, and convert to an array of strings
-//    command("bash", "-c", "env && gradle clean build")
-//}
 
 tasks {
     clean {
